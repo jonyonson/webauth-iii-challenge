@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import UserList from './components/UserList';
 import Register from './components/Register';
 import Login from './components/Login';
 
 class App extends Component {
+  logout = () => {
+    localStorage.removeItem('jwt');
+    this.props.history.push('/signin');
+  };
+
   render() {
     return (
       <div className="app">
@@ -13,12 +18,20 @@ class App extends Component {
             <NavLink activeClassName="active-navlink" to="/users">
               Users
             </NavLink>
-            <NavLink activeClassName="active-navlink" to="/signup">
-              Sign Up
-            </NavLink>
-            <NavLink activeClassName="active-navlink" to="/signin">
-              Login
-            </NavLink>
+            {!localStorage.getItem('jwt') && (
+              <>
+                <NavLink activeClassName="active-navlink" to="/signup">
+                  Sign Up
+                </NavLink>
+
+                <NavLink activeClassName="active-navlink" to="/signin">
+                  Login
+                </NavLink>
+              </>
+            )}
+            {localStorage.getItem('jwt') && (
+              <button onClick={this.logout}>Logout</button>
+            )}
           </nav>
         </header>
         <main>
@@ -31,4 +44,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

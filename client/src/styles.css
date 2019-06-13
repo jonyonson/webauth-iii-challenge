@@ -40,3 +40,20 @@ header > nav > a {
 .active-navlink {
   border-bottom: 1px solid white;
 }
+
+
+header > nav > button {
+  color: white;
+  border: 1px solid white;
+  background: black;
+  margin-left: 15px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+header > nav > button:hover{
+  background: white;
+  color: black;
+}
+
