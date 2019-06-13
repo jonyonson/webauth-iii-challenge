@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Login extends Component {
@@ -30,35 +30,34 @@ class Login extends Component {
 
   render() {
     return (
-      <>
-        <h1>Login</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="username">Username</label>
+      <div className="auth">
+        <div className="auth-card">
+          <h1>Login</h1>
+          <form onSubmit={this.handleSubmit}>
             <input
+              placeholder="Username"
               name="username"
               autoComplete="off"
               value={this.state.username}
               onChange={this.handleInputChange}
               type="text"
             />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
             <input
+              placeholder="Password"
               name="password"
               value={this.state.password}
               onChange={this.handleInputChange}
               type="password"
             />
-          </div>
-          <div>
             <button type="submit">Login</button>
+          </form>
+          <div className="auth-text">
+            Don't have an account? <Link to="/signup">Sign up</Link>
           </div>
-        </form>
-      </>
+        </div>
+      </div>
     );
   }
 }
 
-export default withRouter(Login);
+export default Login;

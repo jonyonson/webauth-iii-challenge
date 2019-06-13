@@ -8,8 +8,8 @@ html {
   box-sizing: inherit;
 }
 
-
 body {
+  background-color:#FAFAFA;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -23,29 +23,41 @@ code {
     monospace;
 }
 
+.container {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-width: 90%;
+}
+
+a {
+  color: #09BC8A;
+}
+
 header {
   display: flex;
   justify-content: flex-end;
   font-size: 18px;
-  background: black;
+  background: #2D2D2A;
   padding: 1rem;
+  padding-right: 2rem;
 }
+
 
 header > nav > a {
   color: white;
   text-decoration: none;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 .active-navlink {
   border-bottom: 1px solid white;
 }
 
-
 header > nav > button {
   color: white;
   border: 1px solid white;
-  background: black;
+  background-color: #2D2D2A;
   margin-left: 15px;
   font-size: 18px;
   border-radius: 4px;
@@ -54,6 +66,78 @@ header > nav > button {
 
 header > nav > button:hover{
   background: white;
-  color: black;
+  color: #2D2D2A
 }
 
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  padding: 30px;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-top: 10%;
+  border: 1px solid rgba(0,0,0,.2);
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+}
+
+.auth form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.auth input, .auth button {
+  font-size: 18px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.4);
+  outline: none;
+}
+
+.auth button {
+  border: 1px solid #09BC8A;
+  background-color: #09BC8A;
+  color: white;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+.auth h1 {
+  color: #2D2D2A;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-text{
+  text-align: center;
+}
+
+.auth-text a {
+  color: #09BC8A;
+}
+
+
+.not-authed-text {
+  font-size: 18px;
+  background: #EDBFC6;
+  /* color: white; */
+  text-align: center;
+  padding: 15px;
+  color: #1f2d3d;
+}
+
+.not-authed-text a {
+  color: #1f2d3d;
+  opacity: .5;
+  font-weight: bold;
+}

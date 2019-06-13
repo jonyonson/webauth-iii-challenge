@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Container from './Container';
 import requiresAuth from '../auth/requiresAuth';
 
 class UserList extends Component {
@@ -22,15 +22,16 @@ class UserList extends Component {
   }
 
   render() {
+    console.log('rerender');
     return (
-      <div>
+      <Container>
         <h1>UserList</h1>
         <ul>
           {this.state.users.map(u => (
             <li key={u.id}>{u.username}</li>
           ))}
         </ul>
-      </div>
+      </Container>
     );
   }
 }
