@@ -6,6 +6,7 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
+    error: '',
   };
 
   handleInputChange = e => {
@@ -23,8 +24,9 @@ class Login extends Component {
         localStorage.setItem('jwt', res.data.token);
         this.props.history.push('/users');
       })
-      .catch(({ response }) => {
-        console.error(response);
+      .catch(error => {
+        this.setState({ error: error.response.data.message });
+        // console.log(error.response.data.message);
       });
   };
 
@@ -55,6 +57,9 @@ class Login extends Component {
             Don't have an account? <Link to="/signup">Sign up</Link>
           </div>
         </div>
+        {this.state.error && (
+          <div className="auth-error">{this.state.error}</div>
+        )}
       </div>
     );
   }

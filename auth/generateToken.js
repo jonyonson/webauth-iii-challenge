@@ -6,7 +6,7 @@ module.exports = user => {
   const payload = {
     subject: user.id,
     username: user.username,
-    departments: ['finance'],
+    departments: [user.department],
   };
 
   const options = {

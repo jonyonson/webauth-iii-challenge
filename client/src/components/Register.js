@@ -6,6 +6,7 @@ class Register extends Component {
   state = {
     username: '',
     password: '',
+    department: '',
     error: null,
   };
 
@@ -16,9 +17,9 @@ class Register extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const endpoint = 'http://localhost:5000/api/register';
-    const { username, password } = this.state;
+    const { username, password, department } = this.state;
     axios
-      .post(endpoint, { username, password })
+      .post(endpoint, { username, password, department })
       .then(res => {
         console.log(res.data);
         localStorage.setItem('jwt', res.data.token);
@@ -46,6 +47,13 @@ class Register extends Component {
               onChange={this.handleInputChange}
               type="text"
             />
+            <select className="auth-select">
+              <option selected disabled>
+                Select Your Department
+              </option>
+              <option value="admin">Admin</option>
+              <option value="student">Student</option>
+            </select>
             <input
               placeholder="Enter a password"
               name="password"
@@ -59,6 +67,9 @@ class Register extends Component {
             Already have an account? <Link to="/signin">Log in</Link>
           </div>
         </div>
+        {this.state.error && (
+          <div className="auth-error">{this.state.error}</div>
+        )}
       </div>
     );
   }

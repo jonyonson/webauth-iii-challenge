@@ -25,10 +25,14 @@ class UserList extends Component {
     console.log('rerender');
     return (
       <Container>
-        <h1>UserList</h1>
-        <ul>
+        <h1>Our Users</h1>
+        <ul className="user-list">
           {this.state.users.map(u => (
-            <li key={u.id}>{u.username}</li>
+            <li className="user-list-item" key={u.id}>
+              <span className="bold">username:</span> {u.username}
+              {/* <br />
+              <span className="bold">department:</span> {u.department} */}
+            </li>
           ))}
         </ul>
       </Container>
